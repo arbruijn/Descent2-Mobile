@@ -59,7 +59,7 @@ ubyte g3_code_point(g3s_point *p) {
 	if (p->p3_y < -p->p3_z)
 		cc |= CC_OFF_BOT;
 
-	if (p->p3_z < 0)
+	if (p->p3_z <= 0)
 		cc |= CC_BEHIND;
 
 	return p->p3_codes = cc;
