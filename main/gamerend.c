@@ -1079,12 +1079,12 @@ void copy_background_rect(int left,int top,int right,int bot)
 			dest_x = left;
 			
 			//h = (bot < dest_y+bm->bm_h)?(bot-dest_y+1):(bm->bm_h-ofs_y);
-			h = fmin(bot-dest_y+1,bm->bm_h-ofs_y);
+			h = min(bot-dest_y+1,bm->bm_h-ofs_y);
 			
 			for (x=tile_left;x<=tile_right;x++) {
 				
 				//w = (right < dest_x+bm->bm_w)?(right-dest_x+1):(bm->bm_w-ofs_x);
-				w = fmin(right-dest_x+1,bm->bm_w-ofs_x);
+				w = min(right-dest_x+1,bm->bm_w-ofs_x);
 				
 				gr_bm_ubitblt(w,h,dest_x,dest_y,ofs_x,ofs_y,
 							  &background_bitmap,&grd_curcanv->cv_bitmap);

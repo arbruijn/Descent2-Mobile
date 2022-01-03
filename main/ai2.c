@@ -841,7 +841,7 @@ void set_next_fire_time(object *objp, ai_local *ailp, robot_info *robptr, int gu
 // -- 	}
 
 	if (((gun_num != 0) || (robptr->weapon_type2 == -1)) && (ailp->rapidfire_count < robptr->rapidfire_count[Difficulty_level])) {
-		ailp->next_fire = fmin(F1_0/8, robptr->firing_wait[Difficulty_level]/2);
+		ailp->next_fire = min(F1_0/8, robptr->firing_wait[Difficulty_level]/2);
 	} else {
 		if ((robptr->weapon_type2 == -1) || (gun_num != 0)) {
 			ailp->next_fire = robptr->firing_wait[Difficulty_level];
@@ -2232,7 +2232,7 @@ int do_any_robot_dying_frame(object *objp)
 		int	rval, death_roll;
 
 		death_roll = Robot_info[objp->id].death_roll;
-		rval = do_robot_dying_frame(objp, objp->ctype.ai_info.dying_start_time, fmin(death_roll/2+1,6)*F1_0, &objp->ctype.ai_info.dying_sound_playing, Robot_info[objp->id].deathroll_sound, death_roll*F1_0/8, death_roll*F1_0/2);
+		rval = do_robot_dying_frame(objp, objp->ctype.ai_info.dying_start_time, min(death_roll/2+1,6)*F1_0, &objp->ctype.ai_info.dying_sound_playing, Robot_info[objp->id].deathroll_sound, death_roll*F1_0/8, death_roll*F1_0/2);
 
 		if (rval) {
 			explode_object(objp, F1_0/4);

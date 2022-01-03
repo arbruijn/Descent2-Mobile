@@ -1635,11 +1635,11 @@ void dead_player_frame(void)
 			}
 		}		
 
-		ConsoleObject->mtype.phys_info.rotvel.x = fmax(0, DEATH_SEQUENCE_EXPLODE_TIME - time_dead)/4;
-		ConsoleObject->mtype.phys_info.rotvel.y = fmax(0, DEATH_SEQUENCE_EXPLODE_TIME - time_dead)/2;
-		ConsoleObject->mtype.phys_info.rotvel.z = fmax(0, DEATH_SEQUENCE_EXPLODE_TIME - time_dead)/3;
+		ConsoleObject->mtype.phys_info.rotvel.x = max(0, DEATH_SEQUENCE_EXPLODE_TIME - time_dead)/4;
+		ConsoleObject->mtype.phys_info.rotvel.y = max(0, DEATH_SEQUENCE_EXPLODE_TIME - time_dead)/2;
+		ConsoleObject->mtype.phys_info.rotvel.z = max(0, DEATH_SEQUENCE_EXPLODE_TIME - time_dead)/3;
 
-		Camera_to_player_dist_goal = fmin(time_dead*8, F1_0*20) + ConsoleObject->size;
+		Camera_to_player_dist_goal = min(time_dead*8, F1_0*20) + ConsoleObject->size;
 
 		set_camera_pos(&Dead_player_camera->pos, ConsoleObject);
 

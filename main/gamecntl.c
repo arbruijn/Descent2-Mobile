@@ -235,7 +235,7 @@ void transfer_energy_to_shield(fix time)
 	fix e;		//how much energy gets transfered
 	static fix last_play_time=0;
 
-	e = fmin(fmin(time*CONVERTER_RATE,Players[Player_num].energy - INITIAL_ENERGY),(MAX_SHIELDS-Players[Player_num].shields)*CONVERTER_SCALE);
+	e = min(min(time*CONVERTER_RATE,Players[Player_num].energy - INITIAL_ENERGY),(MAX_SHIELDS-Players[Player_num].shields)*CONVERTER_SCALE);
 
 	if (e <= 0) {
 

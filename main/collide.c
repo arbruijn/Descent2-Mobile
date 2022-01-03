@@ -1581,7 +1581,7 @@ void collide_robot_and_weapon( object * robot, object * weapon, vms_vector *coll
 			fix	probval;
 			int	num_blobs;
 
-			probval = (Difficulty_level+2) * fmin(weapon->shields, robot->shields);
+			probval = (Difficulty_level+2) * min(weapon->shields, robot->shields);
 			probval = Robot_info[robot->id].energy_blobs * probval/(NDL*32);
 
 			num_blobs = probval >> 16;
@@ -1776,7 +1776,7 @@ void maybe_drop_secondary_weapon_egg(object *playerobj, int weapon_index, int co
 	if (Players[playerobj->id].secondary_weapon_flags & weapon_flag) {
 		int	i, max_count;
 
-		max_count = fmin(count, 3);
+		max_count = min(count, 3);
 		for (i=0; i<max_count; i++)
 			call_object_create_egg(playerobj, 1, OBJ_POWERUP, powerup_num);
 	}
@@ -1901,7 +1901,7 @@ void drop_player_eggs(object *playerobj)
 
 			mprintf ((0,"HOARD MODE: Dropping %d orbs\n",Players[pnum].secondary_ammo[PROXIMITY_INDEX]));
 	
-			max_count = fmin(Players[pnum].secondary_ammo[PROXIMITY_INDEX], 12);
+			max_count = min(Players[pnum].secondary_ammo[PROXIMITY_INDEX], 12);
 			for (i=0; i<max_count; i++)
 				call_object_create_egg(playerobj, 1, OBJ_POWERUP, POW_HOARD_ORB);
 		}
@@ -2326,7 +2326,7 @@ int maybe_detonate_weapon(object *weapon1, object *weapon2, vms_vector *collisio
 			}
 			return 1;
 		} else {
-			weapon1->lifeleft = fmin(dist/64, F1_0);
+			weapon1->lifeleft = min(dist/64, F1_0);
 			return 1;
 		}
 	} else

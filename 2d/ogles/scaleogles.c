@@ -36,7 +36,7 @@ void scale_bitmap_ogles(grs_bitmap *bp, int x0, int y0, int x1, int y1) {
 	glEnable(GL_TEXTURE_2D);
 	ogles_bm_bind_teximage_2d(bp);
 	if (gr_bitblt_fade_table) {
-		alpha = (float)gr_bitblt_fade_table[(int)fmax(y0, 0)] / 31.0f;
+		alpha = (float)gr_bitblt_fade_table[max(y0, 0)] / 31.0f;
     } else {
         alpha = (float)Gr_scanline_darkening_level / (float)GR_FADE_LEVELS;
     }

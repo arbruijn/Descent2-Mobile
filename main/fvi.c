@@ -293,7 +293,7 @@ int check_line_to_face(vms_vector *newp,vms_vector *p0,vms_vector *p1,segment *s
 
 	//use lowest point number
 	if (num_faces==2) {
-		vertnum = fmin(vertex_list[0],vertex_list[2]);
+		vertnum = min(vertex_list[0],vertex_list[2]);
 	}
 	else {
 		int i;

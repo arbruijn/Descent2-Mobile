@@ -1849,10 +1849,10 @@ void build_segment_list(int start_seg_num, int window_num)
 
 							if (no_proj_flag) *new_w = *check_w;
 							else {
-								new_w->left  = fmax(check_w->left,min_x);
-								new_w->right = fmin(check_w->right,max_x);
-								new_w->top   = fmax(check_w->top,min_y);
-								new_w->bot   = fmin(check_w->bot,max_y);
+								new_w->left  = max(check_w->left,min_x);
+								new_w->right = min(check_w->right,max_x);
+								new_w->top   = max(check_w->top,min_y);
+								new_w->bot   = min(check_w->bot,max_y);
 							}
 
 							//see if this seg already visited, and if so, does current window
@@ -1863,10 +1863,10 @@ void build_segment_list(int start_seg_num, int window_num)
 										 new_w->right > render_windows[rp].right ||
 										 new_w->bot > render_windows[rp].bot) {
 
-									new_w->left  = fmin(new_w->left,render_windows[rp].left);
-									new_w->right = fmax(new_w->right,render_windows[rp].right);
-									new_w->top   = fmin(new_w->top,render_windows[rp].top);
-									new_w->bot   = fmax(new_w->bot,render_windows[rp].bot);
+									new_w->left  = min(new_w->left,render_windows[rp].left);
+									new_w->right = max(new_w->right,render_windows[rp].right);
+									new_w->top   = min(new_w->top,render_windows[rp].top);
+									new_w->bot   = max(new_w->bot,render_windows[rp].bot);
 
 									if (no_migrate_segs) {
 										//no_render_flag[lcnt] = 1;

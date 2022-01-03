@@ -106,7 +106,7 @@ int gr_init(int w, int h)
 
 	Scale_x = fixdiv(i2f(grd_curscreen->sc_w), i2f(640));
 	Scale_y = fixdiv(i2f(grd_curscreen->sc_h), i2f(480));
-	Scale_factor = fmin(Scale_x, Scale_y);
+	Scale_factor = min(Scale_x, Scale_y);
 	
 	// Set flags indicating that this is installed.
 	gr_installed = 1;

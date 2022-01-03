@@ -321,9 +321,9 @@ void morph_start(object *obj)
 
 	find_min_max(pm,0,&pmmin,&pmmax);
 
-	box_size.x = fmax(-pmmin.x,pmmax.x) / 2;
-	box_size.y = fmax(-pmmin.y,pmmax.y) / 2;
-	box_size.z = fmax(-pmmin.z,pmmax.z) / 2;
+	box_size.x = max(-pmmin.x,pmmax.x) / 2;
+	box_size.y = max(-pmmin.y,pmmax.y) / 2;
+	box_size.z = max(-pmmin.z,pmmax.z) / 2;
 
 	for (i=0;i<MAX_VECS;i++)		//clear all points
 		md->morph_times[i] = 0;

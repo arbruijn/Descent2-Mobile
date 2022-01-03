@@ -1284,7 +1284,7 @@ void hud_show_homing_warning(void) {
 
 			if (weapon_box_user[0] != WBU_WEAPON || weapon_box_user[1] != WBU_WEAPON) {
 				int wy = (weapon_box_user[0] != WBU_WEAPON) ? SW_y[0] : SW_y[1];
-				y = (int) fmin(y, (wy - Line_spacing - Game_window_y));
+				y = min(y, (wy - Line_spacing - Game_window_y));
 			}
 
 			gr_set_curfont(GAME_FONT);
@@ -1440,7 +1440,7 @@ void show_bomb_count(int x, int y, int bg_color, int always_show) {
 	count = Players[Player_num].secondary_ammo[bomb];
 
 #ifndef RELEASE
-	count = (int) fmin(count, 99);    //only have room for 2 digits - cheating give 200
+	count = min(count, 99);    //only have room for 2 digits - cheating give 200
 #endif
 
 	countx = (bomb == PROXIMITY_INDEX) ? count : -count;

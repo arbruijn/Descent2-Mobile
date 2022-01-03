@@ -1315,7 +1315,7 @@ void options_menuset(int nitems, newmenu_item * items, int *last_key, int citem 
 				}
 #else
 #if !defined(POLY_ACC)
-				ADD_CHECK(6, "Always show HighRes Automap", fmin(MenuHiresAvailable,Automap_always_hires));
+				ADD_CHECK(6, "Always show HighRes Automap", min(MenuHiresAvailable,Automap_always_hires));
 #endif
 #endif
 				//when adding more options, change N_TOGGLE_ITEMS above

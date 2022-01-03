@@ -114,7 +114,7 @@ void read_flying_controls( object * obj )
 				int old_count,new_count;
 	
 				//add in value from 0..1
-				afterburner_scale = f1_0 + fmin(f1_0/2,Afterburner_charge) * 2;
+				afterburner_scale = f1_0 + min(f1_0/2,Afterburner_charge) * 2;
 	
 				forward_thrust_time = fixmul(FrameTime,afterburner_scale);	//based on full thrust
 	
@@ -135,12 +135,12 @@ void read_flying_controls( object * obj )
 			fix cur_energy,charge_up;
 	
 			//charge up to full
-			charge_up = fmin(FrameTime/8,f1_0 - Afterburner_charge);	//recharge over 8 seconds
+			charge_up = min(FrameTime/8,f1_0 - Afterburner_charge);	//recharge over 8 seconds
 	
-			cur_energy = fmax(Players[Player_num].energy-i2f(10),0);	//don't drop below 10
+			cur_energy = max(Players[Player_num].energy-i2f(10),0);	//don't drop below 10
 
 			//maybe limit charge up by energy
-			charge_up = fmin(charge_up,cur_energy/10);
+			charge_up = min(charge_up,cur_energy/10);
 	
 			Afterburner_charge += charge_up;
 	

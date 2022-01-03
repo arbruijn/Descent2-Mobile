@@ -31,5 +31,8 @@ typedef unsigned long ulong;
 #define NULL 0
 #endif
 
+#define min(a,b)  (((a) < (b)) ? (a) : (b))
+#define max(a,b)  (((a) > (b)) ? (a) : (b))
+
 #endif
 

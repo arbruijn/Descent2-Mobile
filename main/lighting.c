@@ -296,7 +296,7 @@ fix compute_light_intensity(int objnum)
 		      return (hoardlight);
 			  }
 			else
-				return fmax(vm_vec_mag_quick(&obj->mtype.phys_info.thrust)/4, F1_0*2) + F1_0/2;
+				return max(vm_vec_mag_quick(&obj->mtype.phys_info.thrust)/4, F1_0*2) + F1_0/2;
 			break;
 		case OBJ_FIREBALL:
 			if (obj->id != 0xff) {
@@ -318,7 +318,7 @@ fix compute_light_intensity(int objnum)
 						return 0;		//	3/4 of time, omega blobs will cast 0 light!
 
 			if (obj->id == FLARE_ID )
-				return 2* (fmin(tval, obj->lifeleft) + ((GameTime ^ Obj_light_xlate[objnum&0x0f]) & 0x3fff));
+				return 2* (min(tval, obj->lifeleft) + ((GameTime ^ Obj_light_xlate[objnum&0x0f]) & 0x3fff));
 			else
 				return tval;
 		}

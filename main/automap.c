@@ -869,7 +869,7 @@ void do_automap( int key_code )	{
 		digi_pause_digi_sounds();
 	}
 	
-	Max_edges = fmin(MAX_EDGES_FROM_VERTS(Num_vertices),MAX_EDGES);			//make maybe smaller than max
+	Max_edges = min(MAX_EDGES_FROM_VERTS(Num_vertices),MAX_EDGES);			//make maybe smaller than max
 	
 	mprintf( (0, "Num_vertices=%d, Max_edges=%d, (MAX:%d)\n", Num_vertices, Max_edges, MAX_EDGES ));
 	mprintf( (0, "Allocated %d K for automap edge list\n", (sizeof(Edge_info)+sizeof(short))*Max_edges/1024 ));

@@ -348,7 +348,7 @@ segmasks get_seg_masks(vms_vector *checkp,int segnum,fix rad)
 			vms_vector normals[2];
 			#endif
 
-			vertnum = fmin(vertex_list[0],vertex_list[2]);
+			vertnum = min(vertex_list[0],vertex_list[2]);
 			
 			#ifdef COMPACT_SEGS
 			get_side_normals(seg, sn, &normals[0], &normals[1] );
@@ -497,7 +497,7 @@ ubyte get_side_dists(vms_vector *checkp,int segnum,fix *side_dists)
 			vms_vector normals[2];
 			#endif
 
-			vertnum = fmin(vertex_list[0],vertex_list[2]);
+			vertnum = min(vertex_list[0],vertex_list[2]);
 
 			#ifdef COMPACT_SEGS
 			get_side_normals(seg, sn, &normals[0], &normals[1] );
@@ -1542,7 +1542,7 @@ void create_walls_on_side(segment *sp, int sidenum)
 
 			s = &sp->sides[sidenum];
 
-			vertnum = fmin(vertex_list[0],vertex_list[2]);
+			vertnum = min(vertex_list[0],vertex_list[2]);
 
 			#ifdef COMPACT_SEGS
 			{

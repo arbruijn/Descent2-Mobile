@@ -196,7 +196,7 @@ object *object_create_explosion_sub(object *objp, short segnum, vms_vector * pos
 								if ((objp != NULL) && Weapon_info[objp->id].flash && obj0p->id==Player_num) {
 									int	fe;
 
-									fe = fmin(F1_0*4, force*Weapon_info[objp->id].flash/32);	//	For four seconds or less
+									fe = min(F1_0*4, force*Weapon_info[objp->id].flash/32);	//	For four seconds or less
 
 									if (objp->ctype.laser_info.parent_signature == ConsoleObject->signature) {
 										fe /= 2;
