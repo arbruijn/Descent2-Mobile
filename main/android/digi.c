@@ -538,6 +538,9 @@ void digi_close_midi() {
 void digi_close_digi() {
 	int i;
 
+	if (!engine_obj)
+		return;
+
 	for (i = 0; i < num_sl_objects; ++i) {
 		if (player_objs[i]) {
 			(*player_objs[i])->Destroy(player_objs[i]);
