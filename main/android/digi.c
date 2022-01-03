@@ -528,8 +528,11 @@ void digi_set_channel_pan(int c, int pan) {
 }
 
 void digi_close_midi() {
+	if (!cur_hmp)
+		return;
 	hmp_stop(cur_hmp);
 	hmp_close(cur_hmp);
+	cur_hmp = NULL;
 }
 
 void digi_close_digi() {
@@ -1421,6 +1424,8 @@ void digi_stop_all() {
 	if (cur_hmp) {
 		hmp_stop(cur_hmp);
 		hmp_close(cur_hmp);
+		cur_hmp = NULL;
+		digi_midi_playing = 0;
 	}
 
 	if (digi_driver_board > 0) {
