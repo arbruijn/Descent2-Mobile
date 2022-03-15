@@ -464,7 +464,7 @@ void robotmaker_proc( FuelCenter * robotcen )
 			//	Make sure this robotmaker hasn't put out its max without having any of them killed.
 			for (i=0; i<=Highest_object_index; i++)
 				if (Objects[i].type == OBJ_ROBOT)
-					if ((Objects[i].matcen_creator^0x80) == my_station_num)
+					if ((byte)(Objects[i].matcen_creator^0x80) == my_station_num)
 						count++;
 			if (count > Difficulty_level + 3) {
 				mprintf((0, "Cannot morph: center %i has already put out %i robots.\n", my_station_num, count));
