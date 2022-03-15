@@ -1174,6 +1174,8 @@ _exit_cheat:
 		case AIM_SNIPE_ATTACK:
 		case AIM_SNIPE_FIRE:
 			if (ai_multiplayer_awareness(obj, 53)) {
+				if (!visibility_and_vec_computed)
+					vm_vec_zero(&vec_to_player);
 				ai_do_actual_firing_stuff(obj, aip, ailp, robptr, &vec_to_player, dist_to_player, &gun_point, player_visibility, object_animates, aip->CURRENT_GUN);
 				if (robptr->thief)
 					ai_move_relative_to_player(obj, ailp, dist_to_player, &vec_to_player, 0, 0, player_visibility);
