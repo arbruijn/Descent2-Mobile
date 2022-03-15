@@ -61,7 +61,7 @@ void create_random_xlate(byte *xt)
 		xt[i] = i;
 
 	for (i=0; i<MAX_SIDES_PER_SEGMENT; i++) {
-		int	j = (drand()*MAX_SIDES_PER_SEGMENT)/(RAND_MAX+1);
+		int	j = (drand()*MAX_SIDES_PER_SEGMENT)/(D_RAND_MAX+1);
 		byte	temp_byte;
 		Assert((j >= 0) && (j < MAX_SIDES_PER_SEGMENT));
 
