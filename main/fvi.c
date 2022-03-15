@@ -415,7 +415,8 @@ int special_check_line_to_face(vms_vector *newp,vms_vector *p0,vms_vector *p1,se
 	edge_len = vm_vec_normalize(&edge_vec);
 	move_len = vm_vec_normalize(&move_vec);
 
-	check_line_to_line(&edge_t,&move_t,edge_v0,&edge_vec,p0,&move_vec);
+	if (!check_line_to_line(&edge_t,&move_t,edge_v0,&edge_vec,p0,&move_vec))
+		return IT_NONE;
 
 	//make sure t values are in valid range
 
