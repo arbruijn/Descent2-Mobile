@@ -49,7 +49,7 @@ extern int Physics_cheat_flag;
 // it was this way for D1 mac -- wonder what problems it caused?
 int oflow_check(fix a, fix b)
 {
-	return 0;
+	return (((unsigned long long)abs(a)*abs(b)) >> 47) != 0;
 }
 
 //find the point on the specified plane where the line intersects
