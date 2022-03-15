@@ -2209,6 +2209,8 @@ void collide_player_and_materialization_center(object *objp)
 	if (objp->id != Player_num)
 		return;
 
+	vm_vec_zero(&exit_dir);
+
 	for (side=0; side<MAX_SIDES_PER_SEGMENT; side++)
 		if (WALL_IS_DOORWAY(segp, side) & WID_FLY_FLAG) {
 			vms_vector	exit_point, rand_vec;
@@ -2241,6 +2243,8 @@ void collide_robot_and_materialization_center(object *objp)
 
 	if ( Robot_info[objp->id].exp1_vclip_num > -1 )
 		object_create_explosion( objp->segnum, &objp->pos, (objp->size/2*3)/4, Robot_info[objp->id].exp1_vclip_num );
+
+	vm_vec_zero(&exit_dir);
 
 	for (side=0; side<MAX_SIDES_PER_SEGMENT; side++)
 		if (WALL_IS_DOORWAY(segp, side) & WID_FLY_FLAG) {
