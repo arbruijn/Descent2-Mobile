@@ -3262,9 +3262,9 @@ void draw_hud() {
 		gr_set_curfont(GAME_FONT);
 		gr_set_fontcolor(gr_getcolor(0, 31, 0), -1);
 		if (Newdemo_state == ND_STATE_PLAYBACK)
-			gr_printf(0x8000, grd_curcanv->cv_h - 14, TXT_REAR_VIEW);
+			gr_printf(0x8000, grd_curcanv->cv_h - f2i(14 * Scale_factor), TXT_REAR_VIEW);
 		else
-			gr_printf(0x8000, grd_curcanv->cv_h - 10, TXT_REAR_VIEW);
+			gr_printf(0x8000, grd_curcanv->cv_h - f2i(10 * Scale_factor), TXT_REAR_VIEW);
 	}
 }
 
