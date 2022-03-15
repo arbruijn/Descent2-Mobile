@@ -1304,9 +1304,9 @@ int obj_create(ubyte type,ubyte id,int segnum,vms_vector *pos,
 	//@@	obj->orient 			= *orient;
 
 	if (orient) {
-		memcpy(&obj->orient, orient, sizeof(vms_vector));
+		memcpy(&obj->orient, orient, sizeof(vms_matrix));
 	} else {
-		memcpy(&obj->orient, &vmd_identity_matrix, sizeof(vms_vector));
+		memcpy(&obj->orient, &vmd_identity_matrix, sizeof(vms_matrix));
 	}
 
 	obj->control_type 		= ctype;
