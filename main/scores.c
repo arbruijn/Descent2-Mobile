@@ -198,7 +198,7 @@ void int_to_string( int number, char *dest )
 		*p++ = buffer[i];
 	}
 	*p++ = '\0';
-	//strrev(dest);
+	strrev(dest);
 }
 
 void scores_fill_struct(stats_info * stats)
@@ -452,6 +452,7 @@ WIN(DDGRUNLOCK(dd_grd_curcanv));
 	 	}
 	#endif
 
+		showRenderBuffer();
 		k = key_inkey();
 		switch( k )	{
 		case KEY_CTRLED+KEY_R:		
